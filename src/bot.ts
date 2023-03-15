@@ -109,7 +109,7 @@ export class ChatGPTBot {
     text: string
   ): boolean {
     return (
-      talker.self() ||
+      // talker.self() ||
       // TODO: add doc support
       messageType !== MessageType.Text ||
       talker.name() === "微信团队" ||
