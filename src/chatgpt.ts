@@ -22,7 +22,14 @@ const sendMessage = async (message: string) => {
       }),
     });
     return response.json()
-      .then((data) => data.choices[0].message.content);
+      .then((data) => {
+        if (Array.isArray(data.choices)) {
+          return data.choices[0].message.content;
+        } else {
+          return "Something went wrong! data is " + data;
+          console.log("data is" + data)
+        }
+      });
   } catch (e) {
     console.error(e)
     return "Something went wrong"
